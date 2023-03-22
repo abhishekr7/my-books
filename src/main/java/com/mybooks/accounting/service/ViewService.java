@@ -2,17 +2,17 @@ package com.mybooks.accounting.service;
 
 import com.mybooks.accounting.entity.Request;
 import com.mybooks.accounting.repository.CustomerRepository;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
-public class CustomerRequestService {
+public class ViewService {
+
     private final CustomerRepository customerRepository;
 
-    public CustomerRequestService(CustomerRepository customerRepository) {
+    public ViewService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
-    public void raiseCustomerRequest(Request request){
-        customerRepository.save(request);
+    public List<Request> getAllCustomerRequests(){
+        return customerRepository.findAll();
     }
 }
